@@ -11,11 +11,18 @@ In addition to the intervalometer functions, the Time-lapse Calculator estimates
 
 Features:
 
-• Calculate shutter interval, event duration (recording time), or target duration (video clip length) 
+• Calculate shutter interval, event duration (recording time), or target duration (video clip length)
+
 • All standard NTSC, PAL, and film frame rates (FPS): 15, 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60, or 120
+
 • Memory card data estimator
+
 • Home screen quick actions using 3D Touch: Shutter Interval, Event Duration, or Target Duration mode
+
 • Copy to Clipboard with one touch (inputs and results)
+
 • Maximum event duration (recording time): 999 days
+
 • Clean, intuitive interface is easy to use while offering features for professional photographers and videographers
+
 • Responsive layout
