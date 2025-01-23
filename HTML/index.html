@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>Time-lapse Calculator</title>
+		<meta name ="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="time-lapse-calculator.css">
+		<script src="jquery-3.1.0.min.js" defer></script>
+		<script src="time-lapse-calculator.js" defer></script>
+	</head>
+	<body>
+		<div id="heading">
+			<span id="heading-text">Time-lapse Calculator</span>
+		</div><!-- heading -->
+		<div id="settings-icon">
+			<span id="settings-icon-touch" onclick="showSettings();">&#xf013;</span>
+		</div><!-- settings-icon -->
+		<table id="time-lapse-calculator">
+			<tr>
+				<td>
+					
+					<!-- INTERVAL MODE -->
+					<table id="durations-interval-mode" class="durations">
+						<tr>
+							<td rowspan="3">Event duration</td>
+							<td class="col-spacer-5"></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-event-days-interval-mode',999);" ontouchend="tapIncrementUp('input-event-days-interval-mode',999);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-event-hours-interval-mode',23);" ontouchend="tapIncrementUp('input-event-hours-interval-mode',23);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-event-minutes-interval-mode',59);" ontouchend="tapIncrementUp('input-event-minutes-interval-mode',59);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="input-dhms-fields">
+							<td></td>
+							<td><input type="number" value="000" id="input-event-days-interval-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-event-hours-interval-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-event-minutes-interval-mode" readonly></td>
+							<td class="number-separator placeholder">:</td>
+							<td><input type="number" class="placeholder"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-event-days-interval-mode',999);" ontouchend="tapIncrementDown('input-event-days-interval-mode',999);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-event-hours-interval-mode',23);" ontouchend="tapIncrementDown('input-event-hours-interval-mode',23);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-event-minutes-interval-mode',59);" ontouchend="tapIncrementDown('input-event-minutes-interval-mode',59);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td><td></td><td><p>|</p></td><td></td><td><p>|</p></td><td></td><td><p>|</p></td><td></td><td></td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td><td></td><td>D</td><td></td><td>H</td><td></td><td>M</td><td></td><td>S</td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="3">Target duration</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-target-hours-interval-mode',23);" ontouchend="tapIncrementUp('input-target-hours-interval-mode',23);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-target-minutes-interval-mode',59);" ontouchend="tapIncrementUp('input-target-minutes-interval-mode',59);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-target-seconds-interval-mode',59);" ontouchend="tapIncrementUp('input-target-seconds-interval-mode',59);">
+								<p>▲</p>
+							</td>
+						</tr>
+						<tr class="input-dhms-fields">
+							<td></td>
+							<td><input type="number" class="placeholder"></td>
+							<td class="number-separator placeholder">:</td>
+							<td><input type="number" value="00" id="input-target-hours-interval-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-target-minutes-interval-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-target-seconds-interval-mode" readonly></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-target-hours-interval-mode',23);" ontouchend="tapIncrementDown('input-target-hours-interval-mode',23);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-target-minutes-interval-mode',59);" ontouchend="tapIncrementDown('input-target-minutes-interval-mode',59);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-target-seconds-interval-mode',59);" ontouchend="tapIncrementDown('input-target-seconds-interval-mode',59);">
+								<p>▼</p>
+							</td>
+						</tr>
+					</table>
+					
+					<!-- EVENT MODE -->
+					<table id="durations-event-mode" class="durations">
+						<tr>
+							<td rowspan="3">Shutter interval</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-interval-hours-event-mode',99);" ontouchend="tapIncrementUp('input-interval-hours-event-mode',99);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-interval-minutes-event-mode',59);" ontouchend="tapIncrementUp('input-interval-minutes-event-mode',59);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-interval-seconds-event-mode',59);" ontouchend="tapIncrementUp('input-interval-seconds-event-mode',59);">
+								<p>▲</p>
+							</td>
+						</tr>
+						<tr class="input-dhms-fields">
+							<td></td>
+							<td><input type="number" class="placeholder"></td><td class="number-separator placeholder">:</td>
+							<td><input type="number" value="00" id="input-interval-hours-event-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-interval-minutes-event-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-interval-seconds-event-mode" readonly></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-interval-hours-event-mode',99);" ontouchend="tapIncrementDown('input-interval-hours-event-mode',99);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-interval-minutes-event-mode',59);" ontouchend="tapIncrementDown('input-interval-minutes-event-mode',59);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-interval-seconds-event-mode',59);" ontouchend="tapIncrementDown('input-interval-seconds-event-mode',59);">
+								<p>▼</p>
+							</td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>H</td>
+							<td></td>
+							<td>M</td>
+							<td></td>
+							<td>S</td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="3">Target duration</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-target-hours-event-mode',23);" ontouchend="tapIncrementUp('input-target-hours-event-mode',23);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-target-minutes-event-mode',59);" ontouchend="tapIncrementUp('input-target-minutes-event-mode',59);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-target-seconds-event-mode',59);" ontouchend="tapIncrementUp('input-target-seconds-event-mode',59);">
+								<p>▲</p>
+							</td>
+						</tr>
+						<tr class="input-dhms-fields">
+							<td></td>
+							<td><input type="number" class="placeholder"></td>
+							<td class="number-separator placeholder">:</td>
+							<td><input type="number" value="00" id="input-target-hours-event-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-target-minutes-event-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-target-seconds-event-mode" readonly></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-target-hours-event-mode',23);" ontouchend="tapIncrementDown('input-target-hours-event-mode',23);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-target-minutes-event-mode',59);" ontouchend="tapIncrementDown('input-target-minutes-event-mode',59);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-target-seconds-event-mode',59);" ontouchend="tapIncrementDown('input-target-seconds-event-mode',59);">
+								<p>▼</p>
+							</td>
+						</tr>
+					</table>
+					
+					<!-- TARGET MODE -->
+					<table id="durations-target-mode" class="durations">
+						<tr>
+							<td rowspan="3">Event duration</td>
+							<td class="col-spacer-5"></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-event-days-target-mode',999);" ontouchend="tapIncrementUp('input-event-days-target-mode',999);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-event-hours-target-mode',23);" ontouchend="tapIncrementUp('input-event-hours-target-mode',23);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-event-minutes-target-mode',59);" ontouchend="tapIncrementUp('input-event-minutes-target-mode',59);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="input-dhms-fields">
+							<td></td>
+							<td><input type="number" value="000" id="input-event-days-target-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-event-hours-target-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-event-minutes-target-mode" readonly></td>
+							<td class="number-separator placeholder">:</td>
+							<td><input type="number" class="placeholder"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-event-days-target-mode',999);" ontouchend="tapIncrementDown('input-event-days-target-mode',999);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-event-hours-target-mode',23);" ontouchend="tapIncrementDown('input-event-hours-target-mode',23);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-event-minutes-target-mode',59);" ontouchend="tapIncrementDown('input-event-minutes-target-mode',59);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td>D</td>
+							<td></td>
+							<td>H</td>
+							<td></td>
+							<td>M</td>
+							<td></td>
+							<td>S</td>
+						</tr>
+						<tr class="input-dhms-units">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+							<td></td>
+							<td>
+								<p>|</p>
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="3">Shutter interval</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-interval-hours-target-mode',99);" ontouchend="tapIncrementUp('input-interval-hours-target-mode',99);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-interval-minutes-target-mode',59);" ontouchend="tapIncrementUp('input-interval-minutes-target-mode',59);">
+								<p>▲</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-up" ontouchstart="holdIncrementUp('input-interval-seconds-target-mode',59);" ontouchend="tapIncrementUp('input-interval-seconds-target-mode',59);">
+								<p>▲</p>
+							</td>
+						</tr>
+						<tr class="input-dhms-fields">
+							<td></td>
+							<td><input type="number" class="placeholder"></td>
+							<td class="number-separator placeholder">:</td>
+							<td><input type="number" value="00" id="input-interval-hours-target-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-interval-minutes-target-mode" readonly></td>
+							<td class="number-separator">:</td>
+							<td><input type="number" value="00" id="input-interval-seconds-target-mode" readonly></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-interval-hours-target-mode',99);" ontouchend="tapIncrementDown('input-interval-hours-target-mode',99);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-interval-minutes-target-mode',59);" ontouchend="tapIncrementDown('input-interval-minutes-target-mode',59);">
+								<p>▼</p>
+							</td>
+							<td></td>
+							<td class="increment-button increment-button-down" ontouchstart="holdIncrementDown('input-interval-seconds-target-mode',59);" ontouchend="tapIncrementDown('input-interval-seconds-target-mode',59);">
+								<p>▼</p>
+							</td>
+						</tr>
+					</table>
+					<table id="rate-res">
+						<tr>
+							<td class="row-spacer-20"></td><td class="col-spacer-10"></td><td></td>
+						</tr>
+						<tr>
+							<td id="td-frame-rate">Frame rate</td>
+							<td></td>
+							<td id="td-frame-rate-input">
+								<select id="input-frame-rate">
+									<option>15</option>
+									<option>23.976</option>
+									<option>24</option>
+									<option>25</option>
+									<option>29.97</option>
+									<option>30</option>
+									<option>48</option>
+									<option>50</option>
+									<option>59.94</option>
+									<option>60</option>
+									<option>120</option>
+								</select> <span class="units">FPS</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="row-spacer-20"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td id="td-camera-res">Camera res<br>
+								<span class="optional">(optional)</span></td>
+							<td></td>
+							<td>
+								<select id="input-camera-res">
+									<option>—</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+									<option>17</option>
+									<option>18</option>
+									<option>19</option>
+									<option>20</option>
+									<option>21</option>
+									<option>22</option>
+									<option>23</option>
+									<option>24</option>
+									<option>25</option>
+									<option>26</option>
+									<option>27</option>
+									<option>28</option>
+									<option>29</option>
+									<option>30</option>
+									<option>31</option>
+									<option>32</option>
+									<option>33</option>
+									<option>34</option>
+									<option>35</option>
+									<option>36</option>
+									<option>37</option>
+									<option>38</option>
+									<option>39</option>
+									<option>40</option>
+									<option>41</option>
+									<option>42</option>
+									<option>43</option>
+									<option>44</option>
+									<option>45</option>
+									<option>46</option>
+									<option>47</option>
+									<option>48</option>
+									<option>49</option>
+									<option>50</option>
+									<option>51</option>
+									<option>52</option>
+									<option>53</option>
+									<option>54</option>
+									<option>55</option>
+									<option>56</option>
+									<option>57</option>
+									<option>58</option>
+									<option>59</option>
+									<option>60</option>
+									<option>61</option>
+									<option>62</option>
+									<option>63</option>
+									<option>64</option>
+									<option>65</option>
+									<option>66</option>
+									<option>67</option>
+									<option>68</option>
+									<option>69</option>
+									<option>70</option>
+									<option>71</option>
+									<option>72</option>
+									<option>73</option>
+									<option>74</option>
+									<option>75</option>
+									<option>76</option>
+									<option>77</option>
+									<option>78</option>
+									<option>79</option>
+									<option>80</option>
+									<option>81</option>
+									<option>82</option>
+									<option>83</option>
+									<option>84</option>
+									<option>85</option>
+									<option>86</option>
+									<option>87</option>
+									<option>88</option>
+									<option>89</option>
+									<option>90</option>
+									<option>91</option>
+									<option>92</option>
+									<option>93</option>
+									<option>94</option>
+									<option>95</option>
+									<option>96</option>
+									<option>97</option>
+									<option>98</option>
+									<option>99</option>
+									<option>100</option>
+									<option>101</option>
+									<option>102</option>
+									<option>103</option>
+									<option>104</option>
+									<option>105</option>
+									<option>106</option>
+									<option>107</option>
+									<option>108</option>
+									<option>109</option>
+									<option>110</option>
+									<option>111</option>
+									<option>112</option>
+									<option>113</option>
+									<option>114</option>
+									<option>115</option>
+									<option>116</option>
+									<option>117</option>
+									<option>118</option>
+									<option>119</option>
+									<option>120</option>
+								</select> <span class="units">megapixels</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="row-spacer-20"></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td id="calculate-orange-row">
+					<table id="calculate-table">
+						<tr>
+							<td class="back-to-top" onclick="backToTop();">&#xf0aa;</td>
+							<td class="col-spacer-back-to-top"></td>
+							<td>
+								<div id="calculate-button" onmousedown="blurFocusedField();" onmouseup="calculateResults();">Calculate <span id="calculate-button-mode"></span></div>
+							</td>
+							<td class="col-spacer-back-to-top"></td>
+							<td class="back-to-top" onclick="backToTop();">&#xf0aa;</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="main-result-interval-mode" class="main-result">
+						<tr>
+							<td>Shutter interval: <span id="output-interval" class="result">—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—</span></td>
+						</tr>
+					</table>
+					<table id="main-result-event-mode" class="main-result">
+						<tr>
+							<td>Event duration: <span id="output-event" class="result">—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—</span></td>
+						</tr>
+					</table>
+					<table id="main-result-target-mode" class="main-result">
+						<tr>
+							<td>Target duration: <span id="output-target" class="result">—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—&nbsp;<span class="result-hms-unit">:</span>&nbsp;—</span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="more-results">
+						<tr>
+							<td class="row-spacer-30"></td><td></td><td></td>
+						</tr>
+						<tr>
+							<td>Exposures:</td>
+							<td>
+								<div id="output-frames" class="result">—</div>
+							</td>
+							<td class="units">frames</td>
+						</tr>
+						<tr>
+							<td class="row-spacer-10"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Playback speed:</td>
+							<td>
+								<div id="output-speed" class="result">—</div>
+							</td>
+							<td class="units">x</td>
+						</tr>
+						<tr>
+							<td class="row-spacer-10"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Data (RAW):</td>
+							<td><div id="output-storage-raw" class="result">—</div></td>
+							<td class="units"> GB<sup>*</sup></td>
+						</tr>
+						<tr>
+							<td class="row-spacer-10"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Data (JPG):</td>
+							<td>
+								<div id="output-storage-jpg" class="result">—</div>
+							</td>
+							<td class="units">GB<sup>*</sup></td>
+						</tr>
+						<tr>
+							<td class="row-spacer-10"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="3" id="loose-est"><sup>*</sup>Loose estimate for storage requirements</td>
+					</table>
+					<table id="copy-table">
+						<tr>
+							<td class="row-spacer-30"></td>
+						</tr>
+						<tr>
+							<td id="copy-row">
+								<div id="copy-button" onmousedown="blurFocusedField();" onmouseup="copyToClipboard();"><span class="clipboard-icon">&#xf0ea;</span> Copy Results</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="row-spacer-30"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		
+		<table id="settings">
+			<tr id="settings-heading-row">
+				<td id="cancel" onclick="cancelSettings()">Cancel</td>
+				<td id="settings-heading">Settings</td><td id="save" onclick="saveSettings()">Save</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<table id="settings-options">
+						<tr>
+							<td>Variable to calculate: </td>
+							<td class="col-spacer-5"></td>
+							<td>
+								<select id="options-variable">
+									<option value="Shutter interval">Shutter interval</option>
+									<option value="Event duration">Event duration (recording time)</option>
+									<option value="Target duration">Target duration (video clip)</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<table id="settings-info">
+						<tr>
+							<td id="settings-links">
+								<p><span class="link" onclick="openInBrowser('https://www.packafoma.com/apps/support/time-lapse-calculator/');">Support Page</span></p>
+								<p><span class="link" onclick="reviewApp();">Rate or review this App</span><br>It only takes a few taps to give this <strong>99¢</strong> app <strong>5</strong> stars!</p>
+							</td>
+						</tr>
+						<tr>
+							<td id="settings-copyright">
+								<p>Time-lapse Calculator<br>
+								Version <span class="bundle-version">2.x.x</span></p>
+								<p class="created"><strong>Created by Dax Mackenzie Roggio</strong><br>
+								<span class="link" onclick="openInBrowser('https://www.instagram.com/phillysoccernoob/');">@phillysoccernoob</span></p>
+								<p>PACKAFōMA CōDE<br>
+								Philadelphia<br>
+								<span class="link" onclick="openInBrowser('https://www.packafoma.com');">packafoma.com</span></p>
+								<p>©2023 Packafoma LLC</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

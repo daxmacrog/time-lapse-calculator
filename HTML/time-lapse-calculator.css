@@ -1,0 +1,426 @@
+@font-face {
+	font-family: FontAwesome;
+	src: url(fontawesome-webfont.ttf);
+}
+
+html, body {
+	overscroll-behavior: none;
+	overscroll-behavior-y: none;
+	scroll-boundary-behavior: none;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #333;
+	font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
+	color: #aaa;
+	font-size: 16px;
+	font-weight: 500;
+	-webkit-text-size-adjust: 100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	cursor: default; /* has no effect in app but makes testing in browser less annoying */
+}
+input {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+
+.show {
+	visibility: visible !important;
+}
+span.link {
+	display: inline-block;
+	color: #007AFF;
+	font-weight: bold;
+}
+.no-break {
+	white-space: nowrap;
+}
+select {
+	font-size: 16px;
+}
+
+table {
+	border-spacing: 0;
+}
+td {
+	padding: 0;
+}
+td.col-spacer-5 {
+	width: 5px;
+}
+td.col-spacer-10 {
+	width: 10px;
+}
+td.row-spacer-10 {
+	height: 10px;
+}
+td.row-spacer-20 {
+	height: 20px;
+}
+td.row-spacer-30 {
+	height: 30px;
+}
+
+
+div#heading {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: calc(env(safe-area-inset-top) + 43px);
+	background-color: #aaa;
+	border-bottom: 1px solid #000;
+	text-align: center;
+}
+span#heading-text {
+	display: inline-block;
+	padding-top: calc(env(safe-area-inset-top) + 11px);
+	font-size: 17px;
+	color: #222;
+	font-weight: 600;
+}
+div#settings-icon {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+span#settings-icon-touch {
+	display: inline-block;
+	padding-top: calc(env(safe-area-inset-top) + 12px);
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: FontAwesome;
+	color: #222;
+	font-size: 19px;
+}
+
+
+table#time-lapse-calculator {
+	width: 100%;
+	margin-top: env(safe-area-inset-top);
+	padding-top: 65px;
+	padding-bottom: env(safe-area-inset-top);
+	background-color: #333;
+}
+
+table.durations, table.main-result, table#more-results, table#settings {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+table.durations {
+	/* don't allow table contents to push table width beyond width of iPhone (320px); some table elements are wider in iOS than OS X Safari for some reason */
+	margin-left: auto;
+	margin-right: auto;
+}
+table#durations-interval-mode {
+	visibility: hidden; /* hide by default so that it doesn't appear briefly if jquery switches to another mode on document load */
+}
+table#durations-event-mode {
+	display: none;
+}
+table#durations-target-mode {
+	display: none;
+}
+
+table#time-lapse-calculator input[type=number] {
+	width: 33px;
+	background-color: #222;
+	border-color: #000;
+	border-radius: 8px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #6c6;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 2em;
+	text-align: center;
+}
+td.increment-button {
+	font-size: 36px;
+	text-align: center;
+	line-height: 1.25em;
+}
+td.increment-button:active {
+	color: #6c6;
+}
+td.increment-button-up p {
+	margin: 0;
+}
+td.increment-button-down p { /* adjustment for ▼ not being perfectly vertically centered within line space; */
+	margin-top: 3px;
+	margin-bottom: 0;
+}
+.placeholder {
+	visibility: hidden;
+}
+td.number-separator {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+tr.input-dhms-fields td {
+	text-align: center;
+}
+tr.input-dhms-units td {
+	font-size: 14px;
+	text-align: center;
+}
+tr.input-dhms-units td p { /* adjustment for | not being perfectly vertically centered within line space */
+	margin-top: -4px;
+	margin-bottom: 0;
+}
+span.input-label {
+	display: inline-block;
+	margin-left: auto;
+}
+
+table#rate-res {
+	margin-left: auto;
+	margin-right: auto;
+}
+#td-camera-res {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+table#time-lapse-calculator #options-variable {
+	font-size: 15px;
+}
+.optional {
+	font-size: 12px;
+}
+.units {
+	font-size: 14px;
+}
+
+td#calculate-orange-row {
+	background-color: #f50;
+}
+table#calculate-table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+table#calculate-table td {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+div#calculate-button {
+	display: inline-block;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	background-color: #aaa;
+	border: 1px solid #222;
+	border-radius: 25px;
+	color: #222;
+	font-size: 16px;
+	font-weight: 500;
+}
+div#calculate-button:active {
+	background-color: #888;
+}
+td.back-to-top {
+	visibility: hidden;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-family: FontAwesome;
+	color: #222;
+	font-size: 24px;
+}
+td.col-spacer-back-to-top {
+	width: 10px;
+}
+table.main-result {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 2px solid #000;
+	font-size: 22px;
+	text-align: center;
+}
+table.main-result td {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+table.main-result .result {
+	color: #f50;
+}
+table.main-result .result-hms-unit {
+	color: #aaa;
+	font-size: 15px;
+}
+table#main-result-interval-mode {
+	visibility: hidden; /* hide by default so that it doesn't appear briefly if jquery switches to another mode on document load */
+}
+table#main-result-event-mode {
+	display: none;
+}
+table#main-result-target-mode {
+	display: none;
+}
+
+table#more-results {
+	margin-left: auto;
+	margin-right: auto;
+}
+table#more-results .result {
+	padding-left: 10px;
+	padding-right: 4px;
+	color: #f50;
+	text-align: right;
+}
+td#loose-est {
+	font-size: 12px;
+	text-align: center;
+}
+
+table#copy-table {
+	margin-left: auto;
+	margin-right: auto;
+}
+td#copy-row {
+	text-align: center;
+}
+div#copy-button {
+	display: inline-block;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	background-color: #444;
+	border: 1px solid #f50;
+	border-radius: 4px;
+	color: #aaa;
+	font-size: 15px;
+	white-space: nowrap;
+}
+div#copy-button:active {
+	background-color: #666;
+}
+div#copy-button .clipboard-icon {
+	font-family: FontAwesome;
+	margin-right: 6px;
+}
+div#copy-button .clipboard-icon-copied {
+	color: #f50;
+}
+
+
+table#settings {
+	display: none;
+	width: 100%;
+	margin-top: env(safe-area-inset-top);
+	padding-top: 45px;
+	padding-bottom: env(safe-area-inset-top);
+	/* background-color #aaa loaded in script */
+	color: #222;
+	font-size: 13px;
+	text-align: center;
+}
+tr#settings-heading-row td {
+	width: 33.3%;
+	font-size: 16px;
+}
+td#cancel {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 3px;
+	padding-right: 3px;
+	color: #C40;
+	text-align: left;
+}
+td#settings-heading {
+	font-weight: bold;
+}
+td#save {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 3px;
+	padding-right: 3px;
+	color: #C40;
+	font-weight: bold;
+	text-align: right;
+}
+table#settings-options {
+	margin-top: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom:
+	text-align: left;
+}
+table#settings-options td {
+	height: 60px;
+	font-size: 15px;
+}
+table#settings-options select {
+    width: 138px;
+	font-size: 15px;
+}
+table#settings-info {
+	margin-left: auto;
+	margin-right: auto;
+}
+td#settings-links .link {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+}
+td#settings-links p {
+	margin-top: 1.5em;
+}
+td#settings-copyright {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+.created {
+	font-size: 16px;
+}
+.logo {
+	margin-left: 1px;
+	font-family: AmericanTypewriter, 'American Typewriter', Courier, 'Courier New', monospace;
+	font-size: 34px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.logo .o {
+	text-transform: lowercase;
+}
+.logo .reg {
+	margin-left: -8px;
+	font-size: 18px;
+	vertical-align: super;
+}
+
+
+/* compact layout for iPhone SE */
+@media only screen and (max-device-width: 320px) {
+
+	table#time-lapse-calculator input[type=number] {
+		width: 22px;
+		font-size: 13px;
+	}
+	td.increment-button {
+		line-height: 1em;
+	}
+	#td-camera-res {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	td.back-to-top {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	td.col-spacer-back-to-top {
+		width: 5px;
+	}
+	table#settings-options td {
+		height: auto;
+	}
+	table#settings-info {
+		line-height: 1.2em;
+	}
+}
