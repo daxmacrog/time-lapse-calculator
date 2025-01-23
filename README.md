@@ -1,5 +1,5 @@
 # Time-lapse Calculator
-This is a simple app that I have been selling in the App Store since 20014 and have decided to open source. It was originally built as web app. So the core layout is constructed in HTML and CSS with logic in JavaScript. Other than converting it into an iOS app, I have made very few modifications over the years. It still seems to function though, and is apparently still useful to photographers, because I continue to get positive feedback from App Store purchasers.
+This is a simple app that I have been selling in the App Store since 20014 and have decided to open source. It was originally built as web app. So the core layout is constructed in HTML and CSS with logic in JavaScript. Other than converting it into an iOS app, I have made very few modifications over the years. It still seems to function on the latest iPhones and iPads though and is apparently still useful to photographers, because I continue to get positive feedback from App Store purchasers.
 
 If you would like to contribute and run with it, by all means, go forth!
 
