@@ -32,3 +32,11 @@ In addition to the intervalometer functions, the Time-lapse Calculator estimates
 • Clean, intuitive interface is easy to use while offering features for professional photographers and videographers
 
 • Responsive layout
+
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-01 at 11 54 20](https://github.com/user-attachments/assets/2481bcb2-329f-4bed-9ec9-9eadb01a38f3)
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-01 at 11 52 56](https://github.com/user-attachments/assets/90c750b0-daca-40c5-b3db-eb28700e9039)
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-01 at 11 51 48](https://github.com/user-attachments/assets/b3bb1abe-0781-4718-9144-155475c83a88)
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-01 at 11 47 39](https://github.com/user-attachments/assets/ffb4e85e-bf11-4b2a-996b-2a3587903610)
+![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2023-06-01 at 12 02 05](https://github.com/user-attachments/assets/614888dd-180d-4ac0-8575-cb6be78c5b22)
+![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2023-06-01 at 12 01 41](https://github.com/user-attachments/assets/25bbfa99-f4c0-4759-835c-272e301ec669)
+![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2023-06-01 at 12 00 47](https://github.com/user-attachments/assets/4a6a373e-1675-4fd1-938f-6906fbba437f)
