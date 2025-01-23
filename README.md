@@ -1,4 +1,10 @@
 # Time-lapse Calculator
+This is a simple app that I have been selling in the App Store since 20014 and have decided to open source. It was originally built as web app. So the core layout is constructed in HTML and CSS with logic in JavaScript. Other than converting it into an iOS app, I have made very few modifications over the years. It still seems to function though, and is apparently still useful to photographers, because I continue to get positive feedback from App Store purchasers.
+
+If you would like to contribute and run with it, by all means, go forth!
+
+# Description
+
 A quick and easy time-lapse calculator with three modes. The default mode allows you to determine the shutter interval (time between shots) that is required to achieve a desired video clip length for a given recording duration.
 
 The Time-lapse Calculator can also be set to calculate the necessary event duration (recording time) or target duration (video clip length) based on the other variables.
@@ -9,7 +15,7 @@ If you know how long you would like the final clip to be, your video frame rate,
 
 In addition to the intervalometer functions, the Time-lapse Calculator estimates the memory card storage capacity that will be required for RAW or high-quality JPG image files, based on the megapixel count of your camera.
 
-Features:
+# Features
 
 • Calculate shutter interval, event duration (recording time), or target duration (video clip length)
 
