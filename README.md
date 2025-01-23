@@ -1,4 +1,4 @@
-# time-lapse-calculator
+# Time-lapse Calculator
 A quick and easy time-lapse calculator with three modes. The default mode allows you to determine the shutter interval (time between shots) that is required to achieve a desired video clip length for a given recording duration.
 
 The Time-lapse Calculator can also be set to calculate the necessary event duration (recording time) or target duration (video clip length) based on the other variables.
